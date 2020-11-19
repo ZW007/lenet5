@@ -27,15 +27,15 @@ int read_data(unsigned char(*data)[28][28], unsigned char label[], const int cou
 	return 0;
 }
 
-void training(LeNet5 *lenet, image *train_data, uint8 *train_label, int batch_size, int total_size)
-{
-	for (int i = 0, percent = 0; i <= total_size - batch_size; i += batch_size)
-	{
-		TrainBatch(lenet, train_data + i, train_label + i, batch_size);
-		if (i * 100 / total_size > percent)
-			printf("batchsize:%d\ttrain:%2d%%\n", batch_size, percent = i * 100 / total_size);
-	}
-}
+// void training(LeNet5 *lenet, image *train_data, uint8 *train_label, int batch_size, int total_size)
+// {
+// 	for (int i = 0, percent = 0; i <= total_size - batch_size; i += batch_size)
+// 	{
+// 		TrainBatch(lenet, train_data + i, train_label + i, batch_size);
+// 		if (i * 100 / total_size > percent)
+// 			printf("batchsize:%d\ttrain:%2d%%\n", batch_size, percent = i * 100 / total_size);
+// 	}
+// }
 
 int testing(LeNet5 *lenet, image *test_data, uint8 *test_label,int total_size)
 {
@@ -99,16 +99,17 @@ void foo()
 	if (load(lenet, LENET_FILE))
 		Initial(lenet);
 	clock_t start = clock();
-	int batches[] = { 300 };
-	for (int i = 0; i < sizeof(batches) / sizeof(*batches);++i)
-		training(lenet, train_data, train_label, batches[i],COUNT_TRAIN);
+        // use pre-trained model, so comment this 
+// 	int batches[] = { 300 };
+// 	for (int i = 0; i < sizeof(batches) / sizeof(*batches);++i)
+// 		training(lenet, train_data, train_label, batches[i],COUNT_TRAIN);
 	int right = testing(lenet, test_data, test_label, COUNT_TEST);
 	printf("%d/%d\n", right, COUNT_TEST);
 	printf("Time:%u\n", (unsigned)(clock() - start));
 	save(lenet, LENET_FILE);
 	free(lenet);
-	free(train_data);
-	free(train_label);
+// 	free(train_data);
+// 	free(train_label);
 	free(test_data);
 	free(test_label);
 	//system("pause");
