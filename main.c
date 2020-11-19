@@ -82,14 +82,16 @@ void foo()
 		printf("ERROR!!!\nDataset File Not Find!Please Copy Dataset to the Floder Included the exe\n");
 		free(train_data);
 		free(train_label);
-		system("pause");
+		//system("pause");
+		exit(1);
 	}
 	if (read_data(test_data, test_label, COUNT_TEST, FILE_TEST_IMAGE, FILE_TEST_LABEL))
 	{
 		printf("ERROR!!!\nDataset File Not Find!Please Copy Dataset to the Floder Included the exe\n");
 		free(test_data);
 		free(test_label);
-		system("pause");
+		//system("pause");
+		exit(1);
 	}
 
 
@@ -109,7 +111,8 @@ void foo()
 	free(train_label);
 	free(test_data);
 	free(test_label);
-	system("pause");
+	//system("pause");
+	exit(0);
 }
 //gcc -I ./ main.c lenet.c -lm -o main
 int main()
