@@ -13,7 +13,7 @@ compile by
 gcc -I ./ main.c lenet.c -lm -o main
 
 
-To use pre-trained model model.dat, and do reference task inside wasmtime. 
+To use pre-trained model model.dat, and do reference task inside wasmtime.  ERROR!!!
 
 compile:
 wasm32-wasi-clang   -I ./ lenet.c main.c -lm -o mainWasi.wasm
