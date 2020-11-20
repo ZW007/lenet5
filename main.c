@@ -17,10 +17,10 @@
 #include <stdio.h>
 #include <time.h>
 
-#define FILE_TRAIN_IMAGE		"train-images-idx3-ubyte"
-#define FILE_TRAIN_LABEL		"train-labels-idx1-ubyte"
-#define FILE_TEST_IMAGE		"t10k-images-idx3-ubyte"
-#define FILE_TEST_LABEL		"t10k-labels-idx1-ubyte"
+#define FILE_TRAIN_IMAGE		"train-images.idx3-ubyte"
+#define FILE_TRAIN_LABEL		"train-labels.idx1-ubyte"
+#define FILE_TEST_IMAGE		"t10k-images.idx3-ubyte"
+#define FILE_TEST_LABEL		"t10k-labels.idx1-ubyte"
 #define LENET_FILE 		"model.dat"
 #define COUNT_TRAIN		60000
 #define COUNT_TEST		10000
@@ -126,7 +126,6 @@ void foo()
 	// for (int i = 0; i < sizeof(batches) / sizeof(*batches);++i)
 	// 	training(lenet, train_data, train_label, batches[i],COUNT_TRAIN);
 
-		printf("before testing, we are OK\n");
 	int right = testing(lenet, test_data, test_label, COUNT_TEST);
 	printf("%d/%d\n", right, COUNT_TEST);
 	printf("Time:%u\n", (unsigned)(clock() - start));
