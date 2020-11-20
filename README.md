@@ -9,14 +9,21 @@ t10k-labels-idx1-ubyte.gz:   test set labels (4542 bytes)
 
 Put them in the same directory. 
 
-compile by 
+compile:
+
 gcc -I ./ main.c lenet.c -lm -o main
+
+run:
+
+./main
 
 
 To use pre-trained model model.dat, and do reference task inside wasmtime.  ERROR!!!
 
 compile:
+
 wasm32-wasi-clang   -I ./ lenet.c main.c -lm -o mainWasi.wasm
 
 run:
+
 wasmtime --dir=. mainWasi.wasm       // capability safety by --dir=. give permission to access file system.
