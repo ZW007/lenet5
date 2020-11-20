@@ -13,7 +13,9 @@ t10k-labels-idx1-ubyte.gz:   test set labels (4542 bytes)
 
 1. Extract them 2. Put them in the same directory. 
 
+
 To train, uncomment train part code 
+
 
 (1) To use the pre-trained model model.dat, and do reference task 
 
@@ -24,6 +26,8 @@ gcc -I ./ main.c lenet.c -lm -o main
 run:
 
 ./main
+
+
 
 (2)
 To use the pre-trained model model.dat, and do reference task inside wasmtime.  ERROR!!!
