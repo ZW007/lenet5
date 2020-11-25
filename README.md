@@ -28,15 +28,13 @@ run:
 
 
 (2)
-To use the pre-trained model model.dat, and do reference task inside wasmtime.  ERROR!!!
+wasmtime 
 
 compile:
 
-wasm32-wasi-clang   -I ./ lenet.c main.c -lm -o mainWasi.wasm
+wasm32-wasi-clang   -Wl,-z,stack-size=1048576  -I ./ lenet.c main.c -lm -o mainWasi.wasm
 
 run:
 
-wasmtime --dir=. mainWasi.wasm       // capability safety by --dir=. give permission to access file system.
+wasmtime --dir=. mainWasi.wasm      
 
-
-wasmtime ERROR!!!!!
